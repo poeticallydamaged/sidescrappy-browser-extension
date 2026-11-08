@@ -63,6 +63,24 @@ function addSelectorRow(labelVal = '', queryVal = '') {
   queryInput.value = queryVal;
   queryInput.className = 'sel-query';
 
+  const upBtn = document.createElement('button');
+  upBtn.textContent = '↑';
+  upBtn.className = 'reorder-btn';
+  upBtn.onclick = () => {
+    if (row.previousElementSibling) {
+      row.parentNode.insertBefore(row, row.previousElementSibling);
+    }
+  };
+
+  const downBtn = document.createElement('button');
+  downBtn.textContent = '↓';
+  downBtn.className = 'reorder-btn';
+  downBtn.onclick = () => {
+    if (row.nextElementSibling) {
+      row.parentNode.insertBefore(row.nextElementSibling, row);
+    }
+  };
+
   const removeBtn = document.createElement('button');
   removeBtn.textContent = '✕';
   removeBtn.className = 'danger';
@@ -70,6 +88,8 @@ function addSelectorRow(labelVal = '', queryVal = '') {
 
   row.appendChild(labelInput);
   row.appendChild(queryInput);
+  row.appendChild(upBtn);
+  row.appendChild(downBtn);
   row.appendChild(removeBtn);
   selectorsContainer.appendChild(row);
 }
