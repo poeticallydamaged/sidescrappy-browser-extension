@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Batch Web Scraper",
+  "version": "1.0",
+  "description": "Automated batch web scraper in the Side Panel",
+  "permissions": [
+    "sidePanel",
+    "tabs",
+    "scripting",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {}
+}
